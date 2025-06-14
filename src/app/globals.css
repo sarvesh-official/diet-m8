@@ -1,0 +1,359 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Dark mode custom variant */
+
+:root {
+  --teal-primary: oklch(0.648 0.1101 194.78);
+  --teal-primary-foreground: oklch(1 0 0);
+  --soft-aqua: oklch(0.9666 0.0153 212);
+  --soft-aqua-foreground: oklch(0.145 0 0);
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --warning: oklch(0.84 0.16 84);
+  --warning-foreground: oklch(0.28 0.07 46);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.269 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.371 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.439 0 0);
+  --warning: oklch(0.41 0.11 46);
+  --warning-foreground: oklch(0.99 0.02 95);
+}
+
+:root {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Direct utility classes for custom colors */
+
+body {
+  font-family: var(--font-sans), sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+* {
+  border-color: var(--border);
+  outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Aurora Background Animation */
+.aurora-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.aurora-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: aurora-float 15s infinite ease-in-out;
+}
+
+@keyframes aurora-float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5%, 5%);
+  }
+  50% {
+    transform: translate(10%, -5%);
+  }
+  75% {
+    transform: translate(-5%, 10%);
+  }
+}
+
+/* Custom Animations */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--teal-primary), #3B82F6);
+}
+
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom classes for color variables */
+.bg-teal-primary {
+  background-color: var(--teal-primary);
+}
+.text-teal-primary {
+  color: var(--teal-primary);
+}
+.border-teal-primary {
+  border-color: var(--teal-primary);
+}
+
+.bg-soft-aqua {
+  background-color: var(--soft-aqua);
+}
+.text-soft-aqua {
+  color: var(--soft-aqua);
+}
+.border-soft-aqua {
+  border-color: var(--soft-aqua);
+}
+
+.bg-warning {
+  background-color: var(--warning);
+}
+.text-warning {
+  color: var(--warning);
+}
+.border-warning {
+  border-color: var(--warning);
+}
+.text-warning-foreground {
+  color: var(--warning-foreground);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1E293B; /* Dark blue background */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #00BCFF; /* Piper cyan */
+}
+
+.cl-formButtonPrimary{
+  height: 40px;
+  background: #04A3A3;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.cl-formButtonPrimary:hover{
+  background: #04A3A3;
+  border: none !important;
+  outline: none !important;
+}
+
+.cl-formButtonPrimary:focus{
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.cl-formButtonPrimary:active{
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Make sure Clerk button has no outlines or shadows */
+.cl-internal-1vpiez4, 
+.cl-internal-ttumny[data-variant="solid"][data-color="primary"],
+.cl-internal-b3fm6y[data-variant="solid"][data-color="primary"] {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.dark .cl-formButtonPrimary{
+  height: 40px;
+  background: #04A3A3;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.dark .cl-formButtonPrimary:hover{
+  background: #04A3A3;
+  border: none !important;
+  outline: none !important;
+}
+
+.cl-headerTitle{
+  display: none;
+}
+.cl-internal-1dauvpw{
+  display:none;
+}
+
+.cl-internal-ttumny[data-variant="solid"][data-color="primary"]{
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Style all Clerk buttons to remove outlines and borders */
+.cl-internal-ttumny,
+.cl-internal-b3fm6y,
+.cl-internal-wkkub3,
+.cl-internal-1vpiez4,
+.cl-internal-1jkrfmi,
+.cl-internal-1d3kbf1 {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Any button within Clerk elements */
+.cl-rootBox button,
+.cl-card button,
+.cl-form button,
+.cl-component button {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.cl-headerTitle {
+  color: #536BFA;
+}
+
+.dark .cl-headerSubtitle{
+  color: white;
+}
+
+.dark .cl-footer{
+  background: #1b2432;
+}
+
+.dark .cl-socialButtonsBlockButton{
+  color: white;
+}
+
+/* Clerk button focus state fixes */
+button[data-localization-key="formButtonPrimary"]:focus,
+button[data-localization-key="formButtonPrimary"]:active,
+button[data-localization-key="formButtonPrimary"]:hover {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Ensure all Clerk buttons with primary/solid state have no outline */
+button[type="submit"] {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Override any focus styles that might cause outlines */
+.cl-rootBox *:focus,
+.cl-rootBox *:focus-visible,
+.cl-rootBox *:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--teal-primary) !important;
+}
+
+/* Styling for authentication pages with Waves component */
+.cl-card {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark .cl-card {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
