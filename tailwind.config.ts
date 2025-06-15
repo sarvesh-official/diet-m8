@@ -18,8 +18,8 @@ const config: Config = {
         'light': '#FFFFFF',
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-urbanist)', 'sans-serif'],
+        urbanist: ['var(--font-urbanist)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-in forwards',

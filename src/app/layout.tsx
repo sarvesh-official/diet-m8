@@ -15,9 +15,10 @@ export const metadata: Metadata = {
   ]
 };
 
-const inter = Fira_Sans({
+const fira = Fira_Sans({
   weight: ["200","400","500","600","800","900","300","100"], subsets : ["latin"]
 });
+
 
 export default function RootLayout({
   children
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={fira.className}>
           <ThemeProvider>
               {children}
             <Toaster/>
